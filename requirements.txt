@@ -1,0 +1,4 @@
+fastapi
+uvicorn[standard]
+teradatasql
+python-dotenv
