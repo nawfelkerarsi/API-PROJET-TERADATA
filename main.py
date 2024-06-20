@@ -1,10 +1,19 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import teradatasql
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["GET"],
+    allow_headers=["*"],
+    allow_credentials=True
+)
 
 @app.get("/query/")
 async def execute_query(sql: str):
